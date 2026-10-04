@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page Introuvable | L'Atelier d'Aurélie</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --cream-50: #FAF8F5;
+        --cream-100: #F5EFEB;
+        --cream-200: #EADBCE;
+        --chocolate-800: #4A2818;
+        --chocolate-900: #2F160A;
+        --chocolate-950: #1B0B04;
+        --gold-400: #E5C48D;
+        --gold-500: #D4B072;
+        --gold-600: #B88E4B;
+        --berry-500: #D64368;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--cream-50);
+        color: var(--chocolate-900);
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        text-align: center;
+      }
+
+      .card {
+        background: white;
+        border: 1px solid var(--cream-200);
+        border-radius: 28px;
+        padding: 48px 32px;
+        max-width: 580px;
+        width: 100%;
+        box-shadow: 0 20px 40px -15px rgba(47, 22, 10, 0.08);
+      }
+
+      .illustration {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 24px auto;
+      }
+
+      .badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        background: #FDF4E6;
+        color: var(--gold-600);
+        padding: 6px 14px;
+        border-radius: 9999px;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-size: 38px;
+        font-weight: 700;
+        line-height: 1.15;
+        color: var(--chocolate-900);
+        margin-bottom: 14px;
+      }
+
+      p {
+        font-size: 15px;
+        color: #6C5446;
+        line-height: 1.6;
+        margin-bottom: 32px;
+        font-weight: 300;
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        justify-content: center;
+      }
+
+      @media (min-width: 480px) {
+        .actions {
+          flex-direction: row;
+        }
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 24px;
+        border-radius: 14px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
+        color: white;
+        box-shadow: 0 4px 14px rgba(184, 142, 75, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(184, 142, 75, 0.35);
+      }
+
+      .btn-secondary {
+        background: var(--cream-50);
+        color: var(--chocolate-900);
+        border: 1px solid var(--cream-200);
+      }
+
+      .btn-secondary:hover {
+        background: var(--cream-100);
+      }
+
+      .footer-note {
+        margin-top: 32px;
+        font-size: 12px;
+        color: #9C8577;
+      }
+
+      .footer-note a {
+        color: var(--gold-600);
+        text-decoration: none;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <!-- Cake SVG with missing slice -->
+      <div class="illustration">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="48" fill="#FAF8F5" stroke="#EADBCE" stroke-width="2"/>
+          <!-- Gâteau assiette -->
+          <ellipse cx="50" cy="72" rx="34" ry="10" fill="#E5C48D" opacity="0.6"/>
+          <!-- Base du gâteau avec part manquante -->
+          <path d="M24 64C24 50 36 42 50 42C56 42 62 44 66 48L50 64L76 64C76 64 76 64 76 64C76 74 64 80 50 80C36 80 24 74 24 64Z" fill="#F0E3CA" stroke="#866028" stroke-width="2"/>
+          <!-- Glaçage miroir framboise -->
+          <path d="M26 62C26 50 36 44 50 44C56 44 61 46 65 49L50 62H26Z" fill="#D64368"/>
+          <!-- Cerise / Baie rouge -->
+          <circle cx="48" cy="38" r="6" fill="#A81D3F"/>
+          <path d="M48 32C52 26 58 24 62 26" stroke="#4A2818" stroke-width="2" stroke-linecap="round"/>
+          <!-- Miroir éclat -->
+          <ellipse cx="36" cy="50" rx="3" ry="1.5" fill="#FFFFFF" opacity="0.7"/>
+          <text x="75" y="46" font-family="'Cormorant Garamond', Georgia, serif" font-size="22" font-weight="700" fill="#B88E4B">?</text>
+        </svg>
+      </div>
+
+      <span class="badge">Erreur 404 — Recette Introuvable</span>
+
+      <h1>Oups, cette part de gâteau a disparu !</h1>
+
+      <p>
+        La page ou la douceur que vous recherchez semble introuvable ou a été déplacée. Rassurez-vous, nos créations pâtissières vous attendent toujours à l'Atelier.
+      </p>
+
+      <div class="actions">
+        <a href="/" class="btn btn-primary">
+          <span>🍰 Retour à l'Atelier</span>
+        </a>
+        <a href="/#creations" class="btn btn-secondary">
+          <span>Découvrir la Galerie</span>
+        </a>
+      </div>
+
+      <div class="footer-note">
+        Besoin d'un renseignement direct ? <a href="/#contact">Contactez Aurélie</a>
+      </div>
+    </div>
+  </body>
+</html>

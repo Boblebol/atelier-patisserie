@@ -1,0 +1,19 @@
+name: ✨ Demande d'Évolution
+description: Suggérer une nouvelle création, fonctionnalité ou amélioration visuelle.
+title: "[FEAT]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Proposition d'amélioration
+      description: Quelle fonctionnalité ou quel nouvel élément souhaitez-vous intégrer ?
+    validations:
+      required: true
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Pourquoi cette évolution ?
+      description: Quel est le bénéfice pour les clients ou la cheffe ?
+    validations:
+      required: false

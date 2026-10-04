@@ -68,10 +68,10 @@ export const Craftsmanship: React.FC = () => {
 
           <div className="md:col-span-2 text-sm text-chocolate-700 font-light space-y-2">
             <p>
-              Nous sélectionnons exclusivement des chocolats de couverture riches en beurre de cacao, des fruits frais soigneusement découpés le jour même et des crèmes gourmandes montées à la perfection.
+              Aurélie sélectionne exclusivement des chocolats de couverture riches en beurre de cacao, des fruits frais soigneusement découpés le jour même et des crèmes gourmandes montées à la perfection.
             </p>
             <p className="text-xs text-chocolate-600 italic">
-              « Chaque création célèbre un moment précieux de votre vie : un anniversaire marquant, une réunion de famille ou un amour partagé. »
+              « Chaque création célèbre un moment précieux de votre vie : un anniversaire marquant, une réunion de famille ou un amour partagé. » — Aurélie
             </p>
           </div>
         </div>

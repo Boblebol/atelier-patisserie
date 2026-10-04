@@ -30,7 +30,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             </div>
 
             <p className="text-xs sm:text-sm text-cream-300/80 font-light max-w-sm leading-relaxed">
-              Haute pâtisserie artisanale sur commande. Entremets miroir délicats, drip cakes gourmands et créations sur mesure pour sublimer chaque fête et anniversaire.
+              Haute pâtisserie artisanale sur commande par Aurélie, pâtissière autodidacte et passionnée. Entremets miroir délicats, drip cakes gourmands et créations sur mesure pour sublimer chaque événement.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -65,6 +65,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
             </h4>
             <ul className="space-y-2 text-xs text-cream-300/80 font-light">
               <li><a href="#creations" className="hover:text-gold-300 transition-colors">Nos Créations</a></li>
+              <li><a href="#a-propos" className="hover:text-gold-300 transition-colors">Rencontre avec Aurélie</a></li>
               <li><a href="#savoir-faire" className="hover:text-gold-300 transition-colors">Savoir-Faire & Ingrédients</a></li>
               <li><a href="#calculateur" className="hover:text-gold-300 transition-colors">Simulateur & Devis</a></li>
               <li><a href="#avis" className="hover:text-gold-300 transition-colors">Témoignages Clients</a></li>

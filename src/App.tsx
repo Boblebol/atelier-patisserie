@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Gallery } from './components/Gallery';
 import { Craftsmanship } from './components/Craftsmanship';
+import { AboutChef } from './components/AboutChef';
 import { Calculator } from './components/Calculator';
 import { HowToOrder } from './components/HowToOrder';
 import { Testimonials } from './components/Testimonials';
@@ -54,6 +55,10 @@ export const App: React.FC = () => {
         <Gallery 
           onSelectCreation={(c) => setSelectedCreation(c)} 
           onCustomOrder={() => handleOpenOrder('Création sur mesure')}
+        />
+
+        <AboutChef 
+          onOrderClick={() => handleOpenOrder('Création personnalisée avec Aurélie')}
         />
 
         <Craftsmanship />

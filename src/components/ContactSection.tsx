@@ -23,7 +23,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
   };
 
   const directWhatsAppUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    `Bonjour ! Je vous contacte via votre site vitrine pour un renseignement / une commande de gâteau.`
+    `Bonjour Aurélie ! Je vous contacte via votre site pour un renseignement / une commande de gâteau.`
   )}`;
 
   return (
@@ -37,11 +37,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
           </span>
 
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate-900">
-            Parlons de votre futur gâteau
+            Parlons de votre futur gâteau avec Aurélie
           </h2>
 
           <p className="text-sm text-chocolate-700 font-light">
-            Une question, une envie gourmande ou une date à bloquer ? Écrivez-nous directement sur WhatsApp, Instagram ou via le formulaire ci-dessous.
+            Une question, une envie gourmande ou une date à bloquer ? Échangez directement avec Aurélie sur WhatsApp, Instagram ou via le formulaire ci-dessous.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
                   Merci pour votre message gourmand !
                 </h3>
                 <p className="text-sm text-chocolate-700 max-w-md mx-auto font-light">
-                  Nous avons bien reçu votre demande. Nous revenons vers vous par email ou téléphone sous 24h avec un devis précis et les détails de confection.
+                  Aurélie a bien reçu votre demande. Elle reviendra vers vous par email ou téléphone sous 24h avec un devis précis et les détails de confection.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}

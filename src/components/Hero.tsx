@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrder, onExploreCreations }) =
             {/* Top pill badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-100/80 border border-gold-300/80 text-chocolate-800 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
               <Sparkles className="w-4 h-4 text-gold-600" />
-              <span>Pâtisserie Fine & Créations d'Exception</span>
+              <span>Haute Pâtisserie Artisanale par Aurélie</span>
             </div>
 
             {/* Main Title */}
@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrder, onExploreCreations }) =
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg text-chocolate-700/90 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
-              Entremets miroir délicats aux fruits frais, drip cakes spectaculaires aux chocolats fins et pièces festives personnalisées. Chaque création est confectionnée à la main avec des ingrédients nobles pour illuminer vos anniversaires et événements.
+              Entremets miroir délicats aux fruits frais, drip cakes spectaculaires et créations gourmandes sur mesure. Chaque pièce est confectionnée artisanalement par Aurélie, pâtissière passionnée et autodidacte, avec des ingrédients nobles pour illuminer vos événements.
             </p>
 
             {/* Above the fold CTAs */}

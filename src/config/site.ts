@@ -1,26 +1,52 @@
 import { PastryCreation, Review, FaqItem } from '../types';
 
 export const siteConfig = {
-  name: "L'Atelier Pâtisserie",
-  chefTitle: "Cheffe Pâtissière Passionnée",
+  name: "L'Atelier d'Aurélie",
+  brandSubtitle: "Pâtisserie Fine & Artisanale",
+  chefName: "Aurélie",
+  chefTitle: "Pâtissière autodidacte & passionnée depuis des années",
   tagline: "Haute pâtisserie artisanale, créations sur mesure & émotions gourmandes",
   location: "Paris & Île-de-France (Retrait en atelier ou livraison sur devis)",
   phone: "+33 6 00 00 00 00", // Remplacer par son vrai numéro
   whatsappNumber: "33600000000", // Sans le '+' pour le lien wa.me
   instagramHandle: "patisserie.artisanale", // Remplacer par son vrai compte Instagram
   instagramUrl: "https://instagram.com",
-  email: "contact@latelier-patisserie.fr",
+  email: "contact@latelier-daurelie.fr",
   leadTimeNotice: "Commandes 48h à 72h à l'avance pour garantir la fraîcheur maximale",
+
+  chefBio: {
+    headline: "La passion du geste, l'exigence du goût, la liberté de l'autodidacte",
+    paragraphs: [
+      "Passionnée de pâtisserie depuis des années, j'ai tout appris en autodidacte, guidée par une curiosité insatiable, la quête du geste parfait et l'amour du partage. Des centaines d'heures d'expérimentation, de lectures et de perfectionnement m'ont permis de maîtriser les techniques les plus délicates de la haute pâtisserie française : la brillance d'un glaçage miroir, le pochage précis d'une ganache montée et l'équilibre subtil entre le croquant, le fondant et l'acidulé.",
+      "Pour moi, un gâteau n'est pas un simple dessert : c'est la pièce maîtresse d'un moment inoubliable. Chaque entremets et chaque drip cake qui sort de mon atelier est pensé et confectionné avec le cœur, pour que vos fêtes de famille, anniversaires et célébrations restent gravés dans les mémoires."
+    ],
+    signatureQuote: "« La pâtisserie, c'est l'art de transformer des ingrédients simples et nobles en souvenirs magiques. »",
+    signatureAuthor: "Aurélie",
+    keyValues: [
+      {
+        title: "100% Autodidacte & Passionnée",
+        desc: "Une pratique libre, exigeante et perfectionnée au fil des années."
+      },
+      {
+        title: "Créations Uniques & Personnalisées",
+        desc: "À l'écoute de chaque détail pour imaginer le gâteau qui vous ressemble."
+      },
+      {
+        title: "Ingrédients Nobles & Fraîcheur",
+        desc: "Aucun compromis : chocolats de couverture, gousses de vanille pures et fruits frais du verger."
+      }
+    ]
+  },
   
   commitments: [
     {
       title: "100% Fait Maison",
-      desc: "Chaque biscuit, crème, insert et glaçage est confectionné artisanalement à la main.",
+      desc: "Chaque biscuit, crème, insert et glaçage est confectionné artisanalement par Aurélie.",
       icon: "Sparkles"
     },
     {
       title: "Ingrédients Nobles",
-      desc: "Vanille Bourbon de Madagascar, chocolat pur beurre de cacao, fruits frais du marché.",
+      desc: "Vanille Bourbon de Madagascar, chocolat pur beurre de cacao, fruits frais de saison.",
       icon: "Award"
     },
     {

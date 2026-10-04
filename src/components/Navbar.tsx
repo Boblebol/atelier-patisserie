@@ -21,6 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrder }) => {
 
   const navLinks = [
     { href: '#creations', label: 'Créations' },
+    { href: '#a-propos', label: 'À Propos' },
     { href: '#savoir-faire', label: 'Savoir-Faire' },
     { href: '#calculateur', label: 'Estimer son gâteau' },
     { href: '#avis', label: 'Avis' },
@@ -47,7 +48,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenOrder }) => {
               {siteConfig.name}
             </span>
             <span className="text-[11px] uppercase tracking-widest text-gold-600 font-semibold block">
-              Pâtisserie Fine & Artisanale
+              {siteConfig.brandSubtitle}
             </span>
           </div>
         </a>

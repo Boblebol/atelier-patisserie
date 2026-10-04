@@ -38,7 +38,7 @@ export const Calculator: React.FC<CalculatorProps> = ({ initialCakeTitle, onSend
 
   // WhatsApp prefilled message
   const generateWhatsAppMessage = () => {
-    const text = `Bonjour ! Je souhaiterais réserver un gâteau auprès de votre atelier :
+    const text = `Bonjour Aurélie ! Je souhaiterais réserver un gâteau auprès de votre atelier :
 🍰 Type : ${getCakeTypeName()}
 👥 Nombre de parts : ${currentPortionConfig.label}
 🍓 Parfum / Saveurs : ${selectedFlavor}

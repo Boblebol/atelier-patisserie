@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MessageCircle, Mail, MapPin, Send, CheckCircle2, Clock } from 'lucide-react';
+import { MessageCircle, Mail, MapPin, Send, CheckCircle2, Clock, Loader2 } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 import { siteConfig } from '../config/site';
 
@@ -14,12 +14,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
   const [date, setDate] = useState('');
   const [portions, setPortions] = useState('8-10 parts');
   const [message, setMessage] = useState(prefilledNotes || '');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate successful submission with friendly thank-you state
-    setSubmitted(true);
+    setIsSubmitting(true);
+    // Smooth submission feedback
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 600);
   };
 
   const directWhatsAppUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
@@ -246,10 +251,20 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
 
                 <button
                   type="submit"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white py-3.5 rounded-xl text-sm font-semibold shadow-soft hover:shadow transition-all"
+                  disabled={isSubmitting}
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-75 disabled:cursor-not-allowed text-white py-3.5 rounded-xl text-sm font-semibold shadow-soft hover:shadow transition-all"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Envoyer ma demande de devis</span>
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Transmission de votre demande...</span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      <span>Envoyer ma demande de devis</span>
+                    </>
+                  )}
                 </button>
               </form>
             )}

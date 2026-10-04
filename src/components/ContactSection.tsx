@@ -20,7 +20,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Smooth submission feedback
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitted(true);
@@ -37,16 +36,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-gold-600 bg-gold-100 px-3 py-1 rounded-full">
+          <span className="text-xs font-bold uppercase tracking-wider text-gold-600 bg-gold-100 px-3 py-1 rounded-full shadow-2xs">
             Échange & Réservation
           </span>
 
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate-900">
+          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate-900 text-balance">
             Parlons de votre futur gâteau avec Aurélie
           </h2>
 
-          <p className="text-sm text-chocolate-700 font-light">
-            Une question, une envie gourmande ou une date à bloquer ? Échangez directement avec Aurélie sur WhatsApp, Instagram ou via le formulaire ci-dessous.
+          <p className="text-sm text-chocolate-700 font-light leading-relaxed">
+            Une question, une envie gourmande ou une date à bloquer&nbsp;? Échangez directement avec Aurélie sur WhatsApp, Instagram ou via le formulaire ci-dessous.
           </p>
         </div>
 
@@ -60,11 +59,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
               href={directWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-6 rounded-3xl bg-emerald-50 border-2 border-emerald-200 hover:border-emerald-400 hover:shadow-card transition-all group"
+              className="block p-6 rounded-3xl bg-emerald-50 border-2 border-emerald-200 hover:border-emerald-400 hover:shadow-card transition-all group focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <MessageCircle className="w-6 h-6" />
+                  <MessageCircle className="w-6 h-6" aria-hidden="true" />
                 </div>
                 <div>
                   <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">
@@ -73,7 +72,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
                   <h3 className="font-serif text-xl font-bold text-emerald-950">
                     Discuter sur WhatsApp
                   </h3>
-                  <p className="text-xs text-emerald-800/80 mt-0.5">
+                  <p className="text-xs text-emerald-800/80 mt-0.5 leading-relaxed">
                     Partagez directement vos photos d'inspiration et posez vos questions.
                   </p>
                 </div>
@@ -85,7 +84,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
               href={siteConfig.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="block p-6 rounded-3xl bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 border border-pink-200 hover:border-pink-300 hover:shadow-card transition-all group"
+              className="block p-6 rounded-3xl bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 border border-pink-200 hover:border-pink-300 hover:shadow-card transition-all group focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:outline-none"
             >
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -98,7 +97,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
                   <h3 className="font-serif text-xl font-bold text-chocolate-900">
                     @{siteConfig.instagramHandle}
                   </h3>
-                  <p className="text-xs text-chocolate-700 mt-0.5">
+                  <p className="text-xs text-chocolate-700 mt-0.5 leading-relaxed">
                     Suivez nos coulisses de préparation et nouveautés hebdomadaires.
                   </p>
                 </div>
@@ -108,25 +107,25 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
             {/* Info Cards */}
             <div className="p-6 rounded-3xl bg-cream-50 border border-cream-200 space-y-4">
               <div className="flex items-start gap-3 text-xs sm:text-sm text-chocolate-800">
-                <MapPin className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
-                  <strong className="block font-semibold text-chocolate-900">Retrait & Secteur d'activité :</strong>
+                  <strong className="block font-semibold text-chocolate-900">Retrait & Secteur d'activité&nbsp;:</strong>
                   <span className="text-chocolate-600">{siteConfig.location}</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm text-chocolate-800">
-                <Clock className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <Clock className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
-                  <strong className="block font-semibold text-chocolate-900">Horaires de retrait :</strong>
+                  <strong className="block font-semibold text-chocolate-900">Horaires de retrait&nbsp;:</strong>
                   <span className="text-chocolate-600">Sur rendez-vous du mardi au dimanche</span>
                 </div>
               </div>
 
               <div className="flex items-start gap-3 text-xs sm:text-sm text-chocolate-800">
-                <Mail className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" />
+                <Mail className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
-                  <strong className="block font-semibold text-chocolate-900">Email :</strong>
+                  <strong className="block font-semibold text-chocolate-900">Email&nbsp;:</strong>
                   <span className="text-chocolate-600">{siteConfig.email}</span>
                 </div>
               </div>
@@ -137,96 +136,111 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
           {/* Right Column: Custom Message Form */}
           <div className="lg:col-span-7 bg-cream-50/70 rounded-3xl p-6 sm:p-10 border border-cream-200 shadow-card">
             {submitted ? (
-              <div className="text-center py-12 space-y-4">
+              <div className="text-center py-12 space-y-4" role="status" aria-live="polite">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-8 h-8" />
+                  <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
                 </div>
                 <h3 className="font-serif text-2xl font-bold text-chocolate-900">
-                  Merci pour votre message gourmand !
+                  Merci pour votre message gourmand&nbsp;!
                 </h3>
-                <p className="text-sm text-chocolate-700 max-w-md mx-auto font-light">
+                <p className="text-sm text-chocolate-700 max-w-md mx-auto font-light leading-relaxed">
                   Aurélie a bien reçu votre demande. Elle reviendra vers vous par email ou téléphone sous 24h avec un devis précis et les détails de confection.
                 </p>
                 <button
+                  type="button"
                   onClick={() => setSubmitted(false)}
-                  className="text-xs font-semibold text-gold-700 hover:text-gold-800 underline pt-2"
+                  className="text-xs font-semibold text-gold-700 hover:text-gold-800 underline pt-2 focus-visible:ring-2 focus-visible:ring-gold-500"
                 >
                   Envoyer une autre demande
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" noValidate={false}>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-chocolate-900 mb-2">
                   Formulaire de réservation & devis
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-chocolate-800 mb-1">
+                    <label htmlFor="contact-name" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
                       Votre Prénom & Nom *
                     </label>
                     <input
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Ex : Camille Dupont"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-chocolate-800 mb-1">
+                    <label htmlFor="contact-phone" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
                       Numéro de téléphone *
                     </label>
                     <input
+                      id="contact-phone"
+                      name="phone"
                       type="tel"
                       required
+                      autoComplete="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="Ex : 06 12 34 56 78"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-chocolate-800 mb-1">
+                    <label htmlFor="contact-email" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
                       Adresse email *
                     </label>
                     <input
+                      id="contact-email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
+                      spellCheck={false}
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Ex : camille@email.com"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-chocolate-800 mb-1">
+                    <label htmlFor="contact-date" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
                       Date souhaitée de l'événement *
                     </label>
                     <input
+                      id="contact-date"
+                      name="event-date"
                       type="date"
                       required
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
+                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-chocolate-800 mb-1">
+                  <label htmlFor="contact-portions" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
                     Format approximatif / Nombre de convives
                   </label>
                   <select
+                    id="contact-portions"
+                    name="portions"
                     value={portions}
                     onChange={(e) => setPortions(e.target.value)}
-                    className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
+                    className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
                   >
                     <option value="6 parts">6 parts (Entremets intime)</option>
                     <option value="8-10 parts">8 à 10 parts (Standard anniversaire)</option>
@@ -237,31 +251,33 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-chocolate-800 mb-1">
+                  <label htmlFor="contact-message" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
                     Précisez votre souhait (modèle repéré, saveurs, thème, inscription...)
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     rows={4}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     placeholder="Ex : Je souhaiterais un Drip Cake Kinder Bueno pour un anniversaire 34 ans avec inscription personnalisée et coulage chocolat..."
-                    className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-white"
+                    className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-75 disabled:cursor-not-allowed text-white py-3.5 rounded-xl text-sm font-semibold shadow-soft hover:shadow transition-all"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-75 disabled:cursor-not-allowed text-white py-3.5 rounded-xl text-sm font-semibold shadow-soft hover:shadow transition-all min-h-[44px] focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none"
                 >
                   {isSubmitting ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
                       <span>Transmission de votre demande...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-4 h-4" />
+                      <Send className="w-4 h-4" aria-hidden="true" />
                       <span>Envoyer ma demande de devis</span>
                     </>
                   )}

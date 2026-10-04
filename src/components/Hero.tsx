@@ -20,13 +20,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrder, onExploreCreations }) =
           <div className="lg:col-span-7 text-center lg:text-left space-y-6">
             
             {/* Top pill badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-100/80 border border-gold-300/80 text-chocolate-800 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
-              <Sparkles className="w-4 h-4 text-gold-600" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-100/80 border border-gold-300/80 text-chocolate-800 text-xs sm:text-sm font-semibold tracking-wide shadow-2xs">
+              <Sparkles className="w-4 h-4 text-gold-600" aria-hidden="true" />
               <span>Haute Pâtisserie Artisanale par Aurélie</span>
             </div>
 
-            {/* Main Title */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-chocolate-900 leading-[1.15] tracking-tight">
+            {/* Main Title with text-balance (Vercel Guidelines) */}
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-chocolate-900 leading-[1.15] tracking-tight text-balance">
               L'émotion d'un gâteau <br className="hidden sm:inline" />
               <span className="gold-gradient-text italic font-normal">fait sur mesure</span>, <br />
               confectionné avec passion.
@@ -41,35 +41,35 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrder, onExploreCreations }) =
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <button
                 onClick={onOpenOrder}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 text-white px-8 py-4 rounded-full text-base font-semibold shadow-card hover:shadow-glow hover:-translate-y-0.5 transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-gold-500 via-gold-600 to-gold-700 text-white px-8 py-4 rounded-full text-base font-semibold shadow-card hover:shadow-glow hover:-translate-y-0.5 transition-all min-h-[44px] focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none"
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar className="w-5 h-5" aria-hidden="true" />
                 <span>Commander ou réserver</span>
               </button>
 
               <button
                 onClick={onExploreCreations}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/80 hover:bg-white text-chocolate-900 border border-cream-300 px-7 py-4 rounded-full text-base font-medium shadow-soft hover:shadow transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/80 hover:bg-white text-chocolate-900 border border-cream-300 px-7 py-4 rounded-full text-base font-medium shadow-soft hover:shadow transition-all min-h-[44px] focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none"
               >
                 <span>Voir les gâteaux</span>
-                <ArrowRight className="w-4 h-4 text-gold-600" />
+                <ArrowRight className="w-4 h-4 text-gold-600" aria-hidden="true" />
               </button>
             </div>
 
-            {/* Trust highlights */}
+            {/* Trust highlights with tabular numbers */}
             <div className="pt-6 border-t border-cream-200/80 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center sm:text-left">
               <div>
-                <div className="font-serif text-2xl font-bold text-chocolate-900">100%</div>
+                <div className="font-serif text-2xl font-bold text-chocolate-900 tabular-nums">100&nbsp;%</div>
                 <div className="text-xs text-chocolate-600 font-medium">Artisanal & frais</div>
               </div>
               <div>
-                <div className="font-serif text-2xl font-bold text-chocolate-900">0%</div>
+                <div className="font-serif text-2xl font-bold text-chocolate-900 tabular-nums">0&nbsp;%</div>
                 <div className="text-xs text-chocolate-600 font-medium">Additifs industriels</div>
               </div>
               <div>
-                <div className="flex items-center justify-center sm:justify-start gap-1 font-serif text-2xl font-bold text-chocolate-900">
+                <div className="flex items-center justify-center sm:justify-start gap-1 font-serif text-2xl font-bold text-chocolate-900 tabular-nums">
                   <span>5.0</span>
-                  <Star className="w-4 h-4 text-amber-500 fill-amber-500" />
+                  <Star className="w-4 h-4 text-amber-500 fill-amber-500" aria-hidden="true" />
                 </div>
                 <div className="text-xs text-chocolate-600 font-medium">Avis clients ravis</div>
               </div>
@@ -88,6 +88,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrder, onExploreCreations }) =
                   <img
                     src="/images/entremets-miroir-fruits-rouges-close.jpg"
                     alt="Entremets miroir ivoire aux fruits rouges et figues fraîches"
+                    width={500}
+                    height={320}
                     className="w-full h-72 sm:h-80 object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     loading="eager"
                   />
@@ -117,6 +119,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrder, onExploreCreations }) =
                     <img
                       src="/images/drip-cake-kinder-chocolat-front.jpg"
                       alt="Drip cake chocolat et Kinder Bueno pour anniversaire 34 ans"
+                      width={320}
+                      height={176}
                       className="w-full h-44 object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
@@ -138,7 +142,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenOrder, onExploreCreations }) =
               {/* Floating Chef Quote badge */}
               <div className="hidden sm:flex absolute -bottom-6 -left-6 z-30 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-card border border-cream-200/80 items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gold-100 flex items-center justify-center text-gold-700 flex-shrink-0">
-                  <Award className="w-5 h-5" />
+                  <Award className="w-5 h-5" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-chocolate-900 leading-tight">

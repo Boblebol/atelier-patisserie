@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Gallery } from './components/Gallery';
@@ -13,12 +13,37 @@ import { Footer } from './components/Footer';
 import { PastryModal } from './components/PastryModal';
 import { LegalModal } from './components/LegalModal';
 import { MobileStickyCta } from './components/MobileStickyCta';
+import { LogoShowcaseModal } from './components/LogoShowcaseModal';
+import { LogoVariant } from './components/BrandLogo';
 import { PastryCreation } from './types';
 
 export const App: React.FC = () => {
   const [selectedCreation, setSelectedCreation] = useState<PastryCreation | null>(null);
   const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [logoModalOpen, setLogoModalOpen] = useState(false);
+  const [activeLogoVariant, setActiveLogoVariant] = useState<LogoVariant>('monogram-crest');
   const [prefilledNote, setPrefilledNote] = useState<string>('');
+
+  // Load persisted logo choice from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('aurelie_logo_variant') as LogoVariant;
+      if (saved && ['monogram-crest', 'fouet-celeste', 'ecrin-miroir', 'signature-artisan'].includes(saved)) {
+        setActiveLogoVariant(saved);
+      }
+    } catch {
+      // localStorage may fail in private mode
+    }
+  }, []);
+
+  const handleSelectLogoVariant = (variant: LogoVariant) => {
+    setActiveLogoVariant(variant);
+    try {
+      localStorage.setItem('aurelie_logo_variant', variant);
+    } catch {
+      // ignore
+    }
+  };
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -43,10 +68,14 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-cream-50 text-chocolate-900 font-sans selection:bg-gold-200 pb-16 md:pb-0">
       {/* Navigation */}
-      <Navbar onOpenOrder={() => handleOpenOrder()} />
+      <Navbar 
+        onOpenOrder={() => handleOpenOrder()} 
+        activeLogoVariant={activeLogoVariant}
+        onOpenLogoStudio={() => setLogoModalOpen(true)}
+      />
 
-      {/* Main Content */}
-      <main className="flex-1">
+      {/* Main Content with id for skip link accessibility */}
+      <main id="main-content" className="flex-1">
         <Hero 
           onOpenOrder={() => handleOpenOrder()} 
           onExploreCreations={() => scrollToSection('creations')} 
@@ -77,7 +106,11 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <Footer onOpenLegal={() => setLegalModalOpen(true)} />
+      <Footer 
+        onOpenLegal={() => setLegalModalOpen(true)} 
+        activeLogoVariant={activeLogoVariant}
+        onOpenLogoStudio={() => setLogoModalOpen(true)}
+      />
 
       {/* Lightbox Detail Modal */}
       <PastryModal 
@@ -90,6 +123,14 @@ export const App: React.FC = () => {
       <LegalModal 
         isOpen={legalModalOpen}
         onClose={() => setLegalModalOpen(false)}
+      />
+
+      {/* Logo Showcase & Customizer Modal */}
+      <LogoShowcaseModal
+        isOpen={logoModalOpen}
+        onClose={() => setLogoModalOpen(false)}
+        activeVariant={activeLogoVariant}
+        onSelectVariant={handleSelectLogoVariant}
       />
 
       {/* Mobile Sticky CTA */}

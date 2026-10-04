@@ -2,6 +2,7 @@ import React from 'react';
 import { Cake, MessageCircle, ArrowUp } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 import { siteConfig } from '../config/site';
+import { PortfolioCrossFooter } from './PortfolioCrossFooter';
 
 interface FooterProps {
   onOpenLegal: () => void;
@@ -117,6 +118,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenLegal }) => {
           </div>
         </div>
 
+      </div>
+
+      {/* Alexandre Enouf Unified Cross-Portfolio Footer */}
+      <div className="mt-12">
+        <PortfolioCrossFooter />
       </div>
     </footer>
   );

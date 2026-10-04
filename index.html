@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'Atelier Pâtisserie — Haute Pâtisserie Artisanale & Gâteaux Personnalisés</title>
+    <meta name="description" content="Découvrez des entremets d'exception, drip cakes gourmands et créations sur mesure faits maison avec des ingrédients nobles. Commandez votre gâteau d'anniversaire ou d'événement." />
+    <meta name="keywords" content="pâtisserie artisanale, drip cake, entremets miroir, gâteau anniversaire, gâteau sur mesure, layer cake, pâtisserie fine, commande gâteau" />
+    <meta name="author" content="L'Atelier Pâtisserie" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://patisserie.alexandre-enouf.fr/" />
+    <meta property="og:title" content="L'Atelier Pâtisserie — Haute Pâtisserie Artisanale & Gâteaux Personnalisés" />
+    <meta property="og:description" content="Entremets miroir d'exception, drip cakes gourmands et créations sur mesure confectionnés avec passion et ingrédients nobles." />
+    <meta property="og:image" content="/images/og-image.jpg" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="L'Atelier Pâtisserie — Haute Pâtisserie Artisanale" />
+    <meta name="twitter:description" content="Entremets miroir d'exception, drip cakes gourmands et créations sur mesure confectionnés avec passion." />
+    <meta name="twitter:image" content="/images/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Google Fonts Preconnect & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "L'Atelier Pâtisserie",
+      "image": "https://patisserie.alexandre-enouf.fr/images/og-image.jpg",
+      "description": "Haute pâtisserie artisanale : entremets miroir, drip cakes et créations personnalisées sur commande.",
+      "servesCuisine": "Pâtisserie française moderne",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Paris & Île-de-France",
+        "addressCountry": "FR"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ],
+      "hasMenu": "https://patisserie.alexandre-enouf.fr/#creations"
+    }
+    </script>
+  </head>
+  <body class="bg-cream-50 text-chocolate-900 font-sans antialiased selection:bg-gold-200 selection:text-chocolate-900">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

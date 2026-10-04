@@ -102,6 +102,12 @@ export const creationsCatalog: PastryCreation[] = [
         webp: "/images/webp/entremets-miroir-fruits-rouges-top.webp",
         caption: "Présentation sur support étoilé or",
         angle: "Vue Globale"
+      },
+      {
+        src: "/images/entremets-miroir-fruits-rouges-box.jpg",
+        webp: "/images/webp/entremets-miroir-fruits-rouges-box.webp",
+        caption: "Présentation soignée en boîte pâtissière de transport sur semelle dorée",
+        angle: "Boîte & Livraison"
       }
     ],
     composition: {

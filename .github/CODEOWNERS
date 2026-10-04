@@ -1,0 +1,5 @@
+# .github/CODEOWNERS
+# Global code ownership for Boblebol repositories
+# Only @Boblebol is authorized to approve changes and manage the main branch.
+
+* @Boblebol

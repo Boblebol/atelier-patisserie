@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { MessageCircle, Mail, MapPin, Send, CheckCircle2, Clock, Loader2 } from 'lucide-react';
+import React from 'react';
+import { MessageCircle, MapPin, Clock, CheckCircle2 } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 import { siteConfig } from '../config/site';
 
@@ -8,284 +8,123 @@ interface ContactSectionProps {
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ prefilledNotes }) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [date, setDate] = useState('');
-  const [portions, setPortions] = useState('8-10 parts');
-  const [message, setMessage] = useState(prefilledNotes || '');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const defaultMessage = prefilledNotes 
+    ? `Bonjour Aurélie ! ${prefilledNotes} Pourrions-nous échanger sur les disponibilités ?`
+    : `Bonjour Aurélie ! Je souhaite réserver un gâteau auprès de votre atelier. Pourrions-nous échanger sur les disponibilités ?`;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-    }, 600);
-  };
-
-  const directWhatsAppUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
-    `Bonjour Aurélie ! Je vous contacte via votre site pour un renseignement / une commande de gâteau.`
-  )}`;
+  const directWhatsAppUrl = `https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
 
   return (
     <section id="contact" className="py-20 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold uppercase tracking-wider text-gold-600 bg-gold-100 px-3 py-1 rounded-full shadow-2xs">
-            Échange & Réservation
+          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100 px-3.5 py-1 rounded-full shadow-2xs">
+            Commande 100% WhatsApp
           </span>
 
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate-900 text-balance">
-            Parlons de votre futur gâteau avec Aurélie
+            Réservez votre gâteau directement avec Aurélie
           </h2>
 
           <p className="text-sm text-chocolate-700 font-light leading-relaxed">
-            Une question, une envie gourmande ou une date à bloquer&nbsp;? Échangez directement avec Aurélie sur WhatsApp, Instagram ou via le formulaire ci-dessous.
+            Pas de formulaire impersonnel : chaque gâteau étant une création artisanale sur mesure, toutes les commandes se font en direct sur WhatsApp pour échanger sur vos envies et valider les disponibilités.
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-10">
-          
-          {/* Left Column: Direct channels & Practical details */}
-          <div className="lg:col-span-5 space-y-6">
+        {/* Central WhatsApp Action Hero Card */}
+        <div className="mt-12 rounded-3xl bg-gradient-to-br from-emerald-900 via-emerald-800 to-chocolate-950 text-white p-8 sm:p-12 shadow-card border border-emerald-500/30">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             
-            {/* Primary WhatsApp Card */}
-            <a
-              href={directWhatsAppUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-6 rounded-3xl bg-emerald-50 border-2 border-emerald-200 hover:border-emerald-400 hover:shadow-card transition-all group focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <MessageCircle className="w-6 h-6" aria-hidden="true" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-800">
-                    Réponse rapide assurée
-                  </span>
-                  <h3 className="font-serif text-xl font-bold text-emerald-950">
-                    Discuter sur WhatsApp
-                  </h3>
-                  <p className="text-xs text-emerald-800/80 mt-0.5 leading-relaxed">
-                    Partagez directement vos photos d'inspiration et posez vos questions.
-                  </p>
-                </div>
-              </div>
-            </a>
-
-            {/* Instagram Card */}
-            <a
-              href={siteConfig.instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-6 rounded-3xl bg-gradient-to-br from-pink-50 via-rose-50 to-amber-50 border border-pink-200 hover:border-pink-300 hover:shadow-card transition-all group focus-visible:ring-2 focus-visible:ring-rose-500 focus-visible:outline-none"
-            >
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <InstagramIcon className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-rose-800">
-                    Galerie & Stories
-                  </span>
-                  <h3 className="font-serif text-xl font-bold text-chocolate-900">
-                    @{siteConfig.instagramHandle}
-                  </h3>
-                  <p className="text-xs text-chocolate-700 mt-0.5 leading-relaxed">
-                    Suivez nos coulisses de préparation et nouveautés hebdomadaires.
-                  </p>
-                </div>
-              </div>
-            </a>
-
-            {/* Info Cards */}
-            <div className="p-6 rounded-3xl bg-cream-50 border border-cream-200 space-y-4">
-              <div className="flex items-start gap-3 text-xs sm:text-sm text-chocolate-800">
-                <MapPin className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <div>
-                  <strong className="block font-semibold text-chocolate-900">Retrait & Secteur d'activité&nbsp;:</strong>
-                  <span className="text-chocolate-600">{siteConfig.location}</span>
-                </div>
+            <div className="md:col-span-7 space-y-4 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-700/60 border border-emerald-400/30 text-emerald-200 text-xs font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Aurélie est disponible sur WhatsApp</span>
               </div>
 
-              <div className="flex items-start gap-3 text-xs sm:text-sm text-chocolate-800">
-                <Clock className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <div>
-                  <strong className="block font-semibold text-chocolate-900">Horaires de retrait&nbsp;:</strong>
-                  <span className="text-chocolate-600">Sur rendez-vous du mardi au dimanche</span>
-                </div>
-              </div>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-tight">
+                Discutez de votre projet en direct
+              </h3>
 
-              <div className="flex items-start gap-3 text-xs sm:text-sm text-chocolate-800">
-                <Mail className="w-5 h-5 text-gold-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <div>
-                  <strong className="block font-semibold text-chocolate-900">Email&nbsp;:</strong>
-                  <span className="text-chocolate-600">{siteConfig.email}</span>
+              <p className="text-xs sm:text-sm text-emerald-100/90 font-light leading-relaxed">
+                Envoyez vos photos d'inspiration, précisez la date de votre fête, le nombre d'invités et vos parfums préférés. Aurélie vous répond rapidement avec une proposition sur mesure.
+              </p>
+
+              <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+                <a
+                  href={directWhatsAppUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-500 hover:bg-emerald-400 text-chocolate-950 font-bold px-8 py-4 rounded-full text-sm sm:text-base shadow-lg hover:shadow-glow hover:scale-105 transition-all"
+                >
+                  <MessageCircle className="w-5 h-5 fill-current" />
+                  <span>Ouvrir WhatsApp maintenant</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Why WhatsApp benefits */}
+            <div className="md:col-span-5 bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/15 space-y-3.5">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-300">
+                Pourquoi commander sur WhatsApp ?
+              </h4>
+
+              <div className="space-y-3 text-xs text-emerald-100">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span><strong>Partage d'images :</strong> Envoyez directement vos captures d'inspiration et thèmes de fête.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span><strong>Disponibilité immédiate :</strong> Validation instantanée des créneaux de confection de la semaine.</span>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                  <span><strong>Délai garanti :</strong> Réservation 48h à 72h à l'avance pour une fraîcheur maximale le jour J.</span>
                 </div>
               </div>
             </div>
 
           </div>
+        </div>
 
-          {/* Right Column: Custom Message Form */}
-          <div className="lg:col-span-7 bg-cream-50/70 rounded-3xl p-6 sm:p-10 border border-cream-200 shadow-card">
-            {submitted ? (
-              <div className="text-center py-12 space-y-4" role="status" aria-live="polite">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
-                </div>
-                <h3 className="font-serif text-2xl font-bold text-chocolate-900">
-                  Merci pour votre message gourmand&nbsp;!
-                </h3>
-                <p className="text-sm text-chocolate-700 max-w-md mx-auto font-light leading-relaxed">
-                  Aurélie a bien reçu votre demande. Elle reviendra vers vous par email ou téléphone sous 24h avec un devis précis et les détails de confection.
-                </p>
-                <button
-                  type="button"
-                  onClick={() => setSubmitted(false)}
-                  className="text-xs font-semibold text-gold-700 hover:text-gold-800 underline pt-2 focus-visible:ring-2 focus-visible:ring-gold-500"
-                >
-                  Envoyer une autre demande
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-4" noValidate={false}>
-                <h3 className="font-serif text-xl sm:text-2xl font-bold text-chocolate-900 mb-2">
-                  Formulaire de réservation & devis
-                </h3>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="contact-name" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
-                      Votre Prénom & Nom *
-                    </label>
-                    <input
-                      id="contact-name"
-                      name="name"
-                      type="text"
-                      required
-                      autoComplete="name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Ex : Camille Dupont"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-phone" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
-                      Numéro de téléphone *
-                    </label>
-                    <input
-                      id="contact-phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      autoComplete="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="Ex : 06 12 34 56 78"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="contact-email" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
-                      Adresse email *
-                    </label>
-                    <input
-                      id="contact-email"
-                      name="email"
-                      type="email"
-                      required
-                      autoComplete="email"
-                      spellCheck={false}
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Ex : camille@email.com"
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="contact-date" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
-                      Date souhaitée de l'événement *
-                    </label>
-                    <input
-                      id="contact-date"
-                      name="event-date"
-                      type="date"
-                      required
-                      value={date}
-                      onChange={(e) => setDate(e.target.value)}
-                      className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="contact-portions" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
-                    Format approximatif / Nombre de convives
-                  </label>
-                  <select
-                    id="contact-portions"
-                    name="portions"
-                    value={portions}
-                    onChange={(e) => setPortions(e.target.value)}
-                    className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white min-h-[44px]"
-                  >
-                    <option value="6 parts">6 parts (Entremets intime)</option>
-                    <option value="8-10 parts">8 à 10 parts (Standard anniversaire)</option>
-                    <option value="12-15 parts">12 à 15 parts</option>
-                    <option value="16-20 parts">16 à 20 parts</option>
-                    <option value="25+ parts">25 parts et plus (Grande réception / Pièce montée)</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label htmlFor="contact-message" className="block text-xs font-semibold text-chocolate-800 mb-1 cursor-pointer">
-                    Précisez votre souhait (modèle repéré, saveurs, thème, inscription...)
-                  </label>
-                  <textarea
-                    id="contact-message"
-                    name="message"
-                    rows={4}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Ex : Je souhaiterais un Drip Cake Kinder Bueno pour un anniversaire 34 ans avec inscription personnalisée et coulage chocolat..."
-                    className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 bg-white"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 disabled:opacity-75 disabled:cursor-not-allowed text-white py-3.5 rounded-xl text-sm font-semibold shadow-soft hover:shadow transition-all min-h-[44px] focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />
-                      <span>Transmission de votre demande...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" aria-hidden="true" />
-                      <span>Envoyer ma demande de devis</span>
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
+        {/* Practical info cards (Clean, non-overlapping) */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="p-5 rounded-2xl bg-cream-50 border border-cream-200 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gold-100 text-gold-700 flex items-center justify-center flex-shrink-0">
+              <Clock className="w-5 h-5" />
+            </div>
+            <div>
+              <strong className="text-xs font-bold text-chocolate-900 block">Délai indicatif</strong>
+              <span className="text-xs text-chocolate-600">48h à 72h à l'avance</span>
+            </div>
           </div>
 
+          <div className="p-5 rounded-2xl bg-cream-50 border border-cream-200 flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gold-100 text-gold-700 flex items-center justify-center flex-shrink-0">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <div>
+              <strong className="text-xs font-bold text-chocolate-900 block">Retrait Atelier</strong>
+              <span className="text-xs text-chocolate-600">Paris & Île-de-France (sur RDV)</span>
+            </div>
+          </div>
+
+          <a
+            href={siteConfig.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-5 rounded-2xl bg-cream-50 border border-cream-200 hover:border-gold-300 transition-all flex items-center gap-3 group"
+          >
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+              <InstagramIcon className="w-5 h-5" />
+            </div>
+            <div>
+              <strong className="text-xs font-bold text-chocolate-900 block">Instagram</strong>
+              <span className="text-xs text-chocolate-600">@{siteConfig.instagramHandle}</span>
+            </div>
+          </a>
         </div>
 
       </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Sparkles, MessageCircle, ChevronRight, CheckCircle2, AlertCircle } from 'lucide-react';
+import { X, Sparkles, MessageCircle, CheckCircle2, AlertCircle } from 'lucide-react';
 import { PastryCreation } from '../types';
 import { siteConfig } from '../config/site';
 
@@ -169,11 +169,12 @@ export const PastryModal: React.FC<PastryModalProps> = ({
               </div>
 
               {/* Bottom Actions */}
-              <div className="pt-4 border-t border-cream-200 space-y-2">
+              <div className="pt-4 border-t border-cream-200 space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-xs text-chocolate-600 block">Tarif indicatif à partir de</span>
                     <span className="font-serif text-2xl font-bold text-chocolate-900">{creation.basePrice} €</span>
+                    <span className="text-[11px] text-chocolate-500 ml-1">({creation.portionRange})</span>
                   </div>
 
                   <button
@@ -181,10 +182,9 @@ export const PastryModal: React.FC<PastryModalProps> = ({
                       onClose();
                       onSelectForOrder(creation);
                     }}
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold shadow-soft hover:shadow transition-all"
+                    className="text-xs font-semibold text-chocolate-700 hover:text-gold-700 underline"
                   >
-                    <span>Commander ce modèle</span>
-                    <ChevronRight className="w-4 h-4" />
+                    Simuler les parts & options
                   </button>
                 </div>
 
@@ -192,10 +192,10 @@ export const PastryModal: React.FC<PastryModalProps> = ({
                   href={`https://wa.me/${siteConfig.whatsappNumber}?text=${whatsappMessage}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 text-xs font-semibold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 py-2 rounded-xl transition-colors"
+                  className="w-full flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-full text-sm font-bold shadow-card transition-all"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Poser une question rapide sur WhatsApp</span>
+                  <span>Commander ce gâteau sur WhatsApp</span>
                 </a>
               </div>
 

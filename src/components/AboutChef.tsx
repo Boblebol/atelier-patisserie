@@ -4,10 +4,10 @@ import { siteConfig } from '../config/site';
 import { BrandLogo } from './BrandLogo';
 
 interface AboutChefProps {
-  onOrderClick: () => void;
+  onOrderClick?: () => void;
 }
 
-export const AboutChef: React.FC<AboutChefProps> = ({ onOrderClick }) => {
+export const AboutChef: React.FC<AboutChefProps> = () => {
   const { chefBio, chefName } = siteConfig;
 
   return (
@@ -25,7 +25,7 @@ export const AboutChef: React.FC<AboutChefProps> = ({ onOrderClick }) => {
             <div className="relative mx-auto max-w-md sm:max-w-none">
               
               {/* Main Image: Handcrafted creation in professional pastry box */}
-              <div className="relative z-10 rounded-3xl overflow-hidden shadow-card border-4 border-white bg-white group">
+              <div className="relative rounded-3xl overflow-hidden shadow-card border-4 border-white bg-white group">
                 <picture>
                   <source srcSet="/images/webp/entremets-miroir-fruits-rouges-box.webp" type="image/webp" />
                   <img
@@ -48,33 +48,34 @@ export const AboutChef: React.FC<AboutChefProps> = ({ onOrderClick }) => {
                 </div>
               </div>
 
-              {/* Floating Badge 1: Autodidacte & Passionnée */}
-              <div className="absolute -top-5 -right-3 sm:-right-6 z-20 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-card border border-gold-200 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gold-100 text-gold-700 flex items-center justify-center flex-shrink-0">
-                  <Flame className="w-5 h-5 text-gold-600" aria-hidden="true" />
+              {/* Feature highlights under image (clean, zero overlap) */}
+              <div className="grid grid-cols-2 gap-3 mt-4">
+                <div className="bg-white p-3.5 rounded-2xl shadow-soft border border-cream-200 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-gold-100 text-gold-700 flex items-center justify-center flex-shrink-0">
+                    <Flame className="w-4 h-4 text-gold-600" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-chocolate-900 leading-tight">
+                      100&nbsp;% Autodidacte
+                    </p>
+                    <p className="text-[11px] text-chocolate-600">
+                      Passion & rigueur
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs font-bold text-chocolate-900 leading-tight">
-                    100&nbsp;% Autodidacte
-                  </p>
-                  <p className="text-[11px] text-chocolate-600">
-                    Passionnée depuis des années
-                  </p>
-                </div>
-              </div>
 
-              {/* Floating Badge 2: Ingrédients Nobles */}
-              <div className="absolute -bottom-6 -left-3 sm:-left-6 z-20 bg-white/95 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl shadow-card border border-cream-200/90 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-berry-50 text-berry-600 flex items-center justify-center flex-shrink-0">
-                  <Heart className="w-5 h-5 text-berry-600" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-chocolate-900 leading-tight">
-                    Cœur & Rigueur
-                  </p>
-                  <p className="text-[11px] text-chocolate-600">
-                    Chaque gâteau est unique
-                  </p>
+                <div className="bg-white p-3.5 rounded-2xl shadow-soft border border-cream-200 flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-xl bg-berry-50 text-berry-600 flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-4 h-4 text-berry-600" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-chocolate-900 leading-tight">
+                      Créations Uniques
+                    </p>
+                    <p className="text-[11px] text-chocolate-600">
+                      Sur mesure pour vous
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -141,12 +142,16 @@ export const AboutChef: React.FC<AboutChefProps> = ({ onOrderClick }) => {
                 </div>
               </div>
 
-              <button
-                onClick={onOrderClick}
-                className="inline-flex items-center justify-center gap-2 bg-chocolate-900 hover:bg-chocolate-800 text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold shadow-soft hover:shadow transition-all flex-shrink-0 min-h-[44px] focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none"
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+                  "Bonjour Aurélie ! J'aimerais échanger avec vous pour imaginer un gâteau personnalisé."
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold shadow-soft hover:shadow transition-all flex-shrink-0 min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
               >
-                <span>Imaginer mon gâteau avec Aurélie</span>
-              </button>
+                <span>Échanger avec Aurélie sur WhatsApp</span>
+              </a>
             </div>
 
           </div>

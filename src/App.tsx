@@ -66,7 +66,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-cream-50 text-chocolate-900 font-sans selection:bg-gold-200 pb-16 md:pb-0">
+    <div className="min-h-screen flex flex-col bg-cream-50 text-chocolate-900 font-sans selection:bg-gold-200 pb-28 md:pb-0">
       {/* Navigation */}
       <Navbar 
         onOpenOrder={() => handleOpenOrder()} 

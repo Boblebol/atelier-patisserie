@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Menu, X, Sparkles, SlidersHorizontal } from 'lucide-react';
+import { MessageCircle, Menu, X } from 'lucide-react';
 import { InstagramIcon } from './Icons';
 import { siteConfig } from '../config/site';
 import { BrandLogo, LogoVariant } from './BrandLogo';
 
 interface NavbarProps {
-  onOpenOrder: (cakeTitle?: string) => void;
+  onOpenOrder?: (cakeTitle?: string) => void;
   activeLogoVariant?: LogoVariant;
   onOpenLogoStudio?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
-  onOpenOrder,
-  activeLogoVariant = 'monogram-crest',
-  onOpenLogoStudio
+  activeLogoVariant = 'monogram-crest'
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -73,19 +71,6 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </span>
               </div>
             </a>
-
-            {/* Quick Logo Studio Trigger Button */}
-            {onOpenLogoStudio && (
-              <button
-                onClick={onOpenLogoStudio}
-                className="hidden lg:inline-flex items-center gap-1.5 text-[11px] font-medium text-chocolate-600 hover:text-gold-700 bg-cream-100 hover:bg-gold-50 px-2.5 py-1 rounded-full border border-cream-300/80 hover:border-gold-300 transition-all focus-visible:ring-2 focus-visible:ring-gold-500"
-                title="Découvrir les 4 déclinaisons du logo pour Aurélie"
-                aria-label="Ouvrir le studio des déclinaisons de logos"
-              >
-                <SlidersHorizontal className="w-3 h-3 text-gold-600" aria-hidden="true" />
-                <span>Studio Logos</span>
-              </button>
-            )}
           </div>
 
           {/* Desktop Navigation Links */}
@@ -114,28 +99,21 @@ export const Navbar: React.FC<NavbarProps> = ({
               <InstagramIcon className="w-5 h-5" />
             </a>
 
-            <button
-              onClick={() => onOpenOrder()}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-soft hover:shadow-glow hover:scale-105 transition-all min-h-[44px] focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none"
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+                "Bonjour Aurélie ! Je souhaite réserver un gâteau auprès de votre atelier."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-soft hover:shadow hover:scale-105 transition-all min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
             >
-              <Sparkles className="w-4 h-4" aria-hidden="true" />
-              <span>Commander un gâteau</span>
-            </button>
+              <MessageCircle className="w-4 h-4" aria-hidden="true" />
+              <span>Commander sur WhatsApp</span>
+            </a>
           </div>
 
-          {/* Mobile Actions: Logo Studio + Menu Button */}
+          {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
-            {onOpenLogoStudio && (
-              <button
-                onClick={onOpenLogoStudio}
-                className="p-2 text-chocolate-700 hover:text-gold-600 bg-cream-100 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center"
-                title="Tester les logos"
-                aria-label="Tester les logos"
-              >
-                <SlidersHorizontal className="w-4 h-4 text-gold-600" />
-              </button>
-            )}
-
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-chocolate-800 hover:text-gold-600 rounded-lg min-w-[44px] min-h-[44px] flex items-center justify-center focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:outline-none"
@@ -168,24 +146,17 @@ export const Navbar: React.FC<NavbarProps> = ({
             </nav>
 
             <div className="pt-4 border-t border-cream-200/60 flex flex-col gap-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenOrder();
-                }}
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 text-white py-3 rounded-full text-sm font-semibold shadow-soft min-h-[44px] focus-visible:ring-2 focus-visible:ring-gold-500"
-              >
-                <Sparkles className="w-4 h-4" aria-hidden="true" />
-                <span>Commander un gâteau</span>
-              </button>
               <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}`}
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+                  "Bonjour Aurélie ! Je souhaite réserver un gâteau auprès de votre atelier."
+                )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-full text-sm font-semibold shadow-sm min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-full text-sm font-semibold shadow-sm min-h-[44px] focus-visible:ring-2 focus-visible:ring-emerald-500"
               >
                 <MessageCircle className="w-4 h-4" aria-hidden="true" />
-                <span>Contact direct WhatsApp</span>
+                <span>Commander sur WhatsApp</span>
               </a>
             </div>
           </div>

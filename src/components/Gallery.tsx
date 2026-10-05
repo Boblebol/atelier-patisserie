@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Sparkles, Eye, ChevronRight, Layers } from 'lucide-react';
-import { creationsCatalog } from '../config/site';
+import { Sparkles, Eye, Layers, MessageCircle } from 'lucide-react';
+import { creationsCatalog, siteConfig } from '../config/site';
 import { PastryCreation } from '../types';
 
 interface GalleryProps {
   onSelectCreation: (creation: PastryCreation) => void;
-  onCustomOrder: () => void;
+  onCustomOrder?: () => void;
 }
 
-export const Gallery: React.FC<GalleryProps> = ({ onSelectCreation, onCustomOrder }) => {
+export const Gallery: React.FC<GalleryProps> = ({ onSelectCreation }) => {
   const [activeFilter, setActiveFilter] = useState<'all' | 'entremets' | 'drip-cake'>('all');
 
   const filteredCreations = creationsCatalog.filter((item) => {
@@ -28,11 +28,11 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectCreation, onCustomOrde
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-chocolate-900">
-            Des créations qui marquent les esprits & ravissent les papilles
+            Des créations qui marquent les esprits & réveillent la gourmandise
           </h2>
 
           <p className="text-base text-chocolate-700 font-light leading-relaxed">
-            Chaque pièce est une œuvre unique, réalisée sur commande avec des ingrédients d'exception. Cliquez sur un gâteau pour explorer les photos sous tous les angles et découvrir sa composition.
+            Chaque pièce est confectionnée à la commande avec des ingrédients nobles et des fruits frais du verger. Choisissez votre modèle et réservez directement sur WhatsApp avec Aurélie.
           </p>
 
           {/* Filter Pills */}
@@ -55,7 +55,7 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectCreation, onCustomOrde
                   : 'bg-white text-chocolate-800 border border-cream-200 hover:bg-cream-100'
               }`}
             >
-              Entremets Miroir & Fruits
+              Entremets Miroir & Fruits de Saison
             </button>
             <button
               onClick={() => setActiveFilter('drip-cake')}
@@ -161,21 +161,34 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectCreation, onCustomOrde
                   </p>
                 </div>
 
-                {/* Footer specs & CTA */}
-                <div className="mt-6 pt-5 border-t border-cream-100 flex items-center justify-between">
+                {/* Footer specs & WhatsApp CTA */}
+                <div className="mt-6 pt-5 border-t border-cream-100 flex flex-wrap items-center justify-between gap-4">
                   <div>
                     <span className="text-xs text-chocolate-500 block">Dès</span>
                     <span className="font-serif text-2xl font-bold text-chocolate-900">{cake.basePrice} €</span>
                     <span className="text-[11px] text-chocolate-500 ml-1.5">({cake.portionRange})</span>
                   </div>
 
-                  <button
-                    onClick={() => onSelectCreation(cake)}
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-gold-700 hover:text-gold-800 bg-gold-50 hover:bg-gold-100 px-4 py-2.5 rounded-full transition-all"
-                  >
-                    <span>Détails & Photos</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => onSelectCreation(cake)}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-chocolate-800 hover:text-gold-700 bg-cream-100 hover:bg-gold-50 px-3.5 py-2.5 rounded-full transition-all"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-gold-600" />
+                      <span>Photos</span>
+                    </button>
+                    <a
+                      href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+                        `Bonjour Aurélie ! Je souhaite commander la création "${cake.title}". Pourrions-nous valider la date et le format ensemble ?`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 px-4 py-2.5 rounded-full shadow-soft transition-all"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5" />
+                      <span>Commander</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -190,20 +203,24 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectCreation, onCustomOrde
               Projet 100% sur mesure
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold">
-              Vous avez une idée précise ou un thème particulier ?
+              Une envie particulière ou un thème spécifique ?
             </h3>
             <p className="text-sm text-cream-200 max-w-xl font-light">
-              Number cakes, gâteaux à étages, décors floraux, parfums sur-mesure... Nous donnons vie à toutes vos inspirations pour sublimer votre événement.
+              Number cakes, parfums sur mesure, pièces de réception... Échangez directement avec Aurélie sur WhatsApp pour imaginer ensemble votre gâteau parfait.
             </p>
           </div>
 
-          <button
-            onClick={onCustomOrder}
-            className="flex-shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-all"
+          <a
+            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(
+              "Bonjour Aurélie ! J'ai un projet de gâteau personnalisé sur mesure. Puis-je vous partager mes idées et photos d'inspiration ?"
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-3.5 rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-all"
           >
-            <span>Créer mon gâteau personnalisé</span>
-            <ChevronRight className="w-4 h-4" />
-          </button>
+            <MessageCircle className="w-4 h-4" />
+            <span>Discuter de mon projet sur WhatsApp</span>
+          </a>
         </div>
 
       </div>

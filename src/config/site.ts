@@ -62,12 +62,12 @@ export const siteConfig = {
   ],
 
   flavorOptions: [
-    { label: "Vanille Bourbon & Framboises fraîches", category: "Fruité" },
-    { label: "Chocolat Noir Grand Cru & Cœur Coulant Noisette", category: "Gourmand" },
+    { label: "Figues fraîches, Poires fondantes & Vanille (Fruits de saison)", category: "Fruits de Saison" },
+    { label: "Chocolat Noir Grand Cru & Cœur Praliné Noisette", category: "Gourmand" },
     { label: "Kinder Bueno & Crème Mascarpone Légère", category: "Gourmand" },
-    { label: "Exotique : Mangue, Passion & Noix de Coco", category: "Fruité" },
+    { label: "Caramel Beurre Salé & Pommes Caramélisées (Saison)", category: "Gourmand" },
     { label: "Pistache d'Iran & Fleur d'Oranger", category: "Raffiné" },
-    { label: "Caramel Beurre Salé & Praliné Croustillant", category: "Gourmand" }
+    { label: "Vanille Bourbon & Cœur Coulant Fruits Rouges", category: "Fruité" }
   ],
 
   portionSizes: [
@@ -82,73 +82,74 @@ export const siteConfig = {
 export const creationsCatalog: PastryCreation[] = [
   {
     id: "entremets-miroir-fruits-rouges",
-    title: "L'Écrin Miroir Fruits Rouges & Figues",
-    subtitle: "Entremets signature au glaçage ivoire marbré & fruits frais du verger",
+    title: "L'Écrin Miroir d'Automne : Figues Fraîches & Fruits de Saison",
+    subtitle: "Entremets signature aux figues violettes rôties, poires fondantes & baies d'automne",
     category: "entremets",
-    categoryLabel: "Entremets Miroir",
-    description: "Une création d'une finesse absolue. Un glaçage miroir immaculé marbré de coulis de fruits rouges, délicatement orné de figues fraîches charnues, framboises fondantes, myrtilles sauvages et groseilles acidulées. Plaquette d'anniversaire personnalisée calligraphiée à la main.",
+    categoryLabel: "Entremets Miroir & Fruits de Saison",
+    description: "Une création d'automne envoûtante et ultra-fraîche. Sous un glaçage miroir brillant marbré aux reflets pourpres, une mousse aérienne à la vanille Bourbon de Madagascar enveloppe un cœur compoté de poires fondantes et mûres sauvages. Une somptueuse couronne de figues fraîches violettes de Solliès découpées à la minute, mûres juteuses et éclats de noisettes torréfiées sublime chaque bouchée.",
     portionRange: "6 à 16 parts",
     basePrice: 42,
-    highlightBadge: "Coup de Cœur",
+    highlightBadge: "Fruits de Saison",
     mainImage: "/images/entremets-miroir-fruits-rouges-close.jpg",
     mainImageWebp: "/images/webp/entremets-miroir-fruits-rouges-close.webp",
     galleryImages: [
       {
         src: "/images/entremets-miroir-fruits-rouges-close.jpg",
         webp: "/images/webp/entremets-miroir-fruits-rouges-close.webp",
-        caption: "Zoom sur le glaçage miroir brillant et les figues fraîches",
+        caption: "Zoom sur le glaçage miroir brillant et les figues violettes fraîches de saison",
         angle: "Vue Rapprochée"
       },
       {
         src: "/images/entremets-miroir-fruits-rouges-flatlay.jpg",
         webp: "/images/webp/entremets-miroir-fruits-rouges-flatlay.webp",
-        caption: "Vue aérienne de l'entremets avec plat doré festif",
+        caption: "Vue aérienne de l'entremets avec plat doré festif et couronne de figues",
         angle: "Vue du Dessus"
       },
       {
         src: "/images/entremets-miroir-fruits-rouges-angle.jpg",
         webp: "/images/webp/entremets-miroir-fruits-rouges-angle.webp",
-        caption: "Couronne de fruits rouges et calligraphie Joyeux Anniversaire",
+        caption: "Couronne de fruits de saison et calligraphie Joyeux Anniversaire",
         angle: "Angle 3/4"
       },
       {
         src: "/images/entremets-miroir-fruits-rouges-macro.jpg",
         webp: "/images/webp/entremets-miroir-fruits-rouges-macro.webp",
-        caption: "Texture marbrée du coulis artisanal et éclat des baies",
+        caption: "Texture marbrée du coulis artisanal et éclat des figues fraîches",
         angle: "Macro Gourmande"
       },
       {
         src: "/images/entremets-miroir-fruits-rouges-side.jpg",
         webp: "/images/webp/entremets-miroir-fruits-rouges-side.webp",
-        caption: "Ligne épurée et tombée de glaçage soyeux",
+        caption: "Ligne épurée et tombée de glaçage miroir soyeux",
         angle: "Profil Élégant"
       },
       {
         src: "/images/entremets-miroir-fruits-rouges-top.jpg",
         webp: "/images/webp/entremets-miroir-fruits-rouges-top.webp",
-        caption: "Présentation sur support étoilé or",
+        caption: "Présentation de gala sur support étoilé or",
         angle: "Vue Globale"
       },
       {
         src: "/images/entremets-miroir-fruits-rouges-box.jpg",
         webp: "/images/webp/entremets-miroir-fruits-rouges-box.webp",
-        caption: "Présentation soignée en boîte pâtissière de transport sur semelle dorée",
-        angle: "Boîte & Livraison"
+        caption: "Présentation soignée en boîte pâtissière sur semelle dorée",
+        angle: "Boîte & Transport"
       }
     ],
     composition: {
-      biscuit: "Génoise moelleuse à la vanille de Madagascar ou financier amande",
-      creme: "Mousse légère et aérienne au chocolat blanc vanillé",
-      insert: "Cœur coulant compotée de fruits des bois acidulés",
-      glacage: "Glaçage miroir ivoire marbré au jus de framboise",
+      biscuit: "Moelleux noisette du Piémont et biscuit cuillère vanillé",
+      creme: "Mousse légère et soyeuse à la vanille Bourbon de Madagascar",
+      insert: "Cœur compoté de poires rôties fondantes et mûres sauvages",
+      glacage: "Glaçage miroir ivoire marbré au jus de mûres sauvages",
       decorations: [
-        "Figues violettes fraîches coupées en quartiers",
-        "Framboises, myrtilles sauvages, mûres et groseilles",
-        "Plaquette chocolat blanc personnalisée calligraphiée",
-        "Touches d'éclats dorés"
+        "Figues violettes de Solliès fraîches tranchées à la minute",
+        "Mûres sauvages, framboises tardives et myrtilles juteuses",
+        "Éclats croustillants de noisettes torréfiées",
+        "Plaquette personnalisée calligraphiée en chocolat",
+        "Touches délicates d'or comestible"
       ]
     },
-    allergens: ["Gluten (farine)", "Œufs", "Lait & dérivés", "Fruits à coque (selon biscuit choisi)"],
+    allergens: ["Gluten", "Œufs", "Lait", "Fruits à coque (noisettes, amandes)"],
     leadTimeHours: 48
   },
   {

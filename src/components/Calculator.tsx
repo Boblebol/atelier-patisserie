@@ -42,9 +42,9 @@ export const Calculator: React.FC<CalculatorProps> = ({ initialCakeTitle, onSend
 🍰 Type : ${getCakeTypeName()}
 👥 Nombre de parts : ${currentPortionConfig.label}
 🍓 Parfum / Saveurs : ${selectedFlavor}
-${customInscription ? `✍️ Inscription souhaitée : "${customInscription}"\n` : ''}${eventDate ? `📅 Date de l'événement : ${eventDate}\n` : ''}${extraSpecialRequest ? `💬 Détails complémentaires : ${extraSpecialRequest}\n` : ''}💰 Devis estimatif indicatif : ~${calculatedPrice} €
+${customInscription ? `✍️ Inscription souhaitée : "${customInscription}"\n` : ''}${eventDate ? `📅 Date de l'événement : ${eventDate}\n` : ''}${extraSpecialRequest ? `💬 Précisions : ${extraSpecialRequest}\n` : ''}💰 Estimation indicative : ~${calculatedPrice} €
 
-Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? Merci beaucoup !`;
+Pourrions-nous valider la disponibilité pour cette date ? Merci beaucoup !`;
     return encodeURIComponent(text);
   };
 
@@ -75,11 +75,11 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
           </div>
 
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate-900">
-            Composez votre gâteau sur mesure
+            Composez votre gâteau & réservez sur WhatsApp
           </h2>
 
           <p className="text-sm text-chocolate-700 font-light">
-            Sélectionnez vos critères en quelques clics pour estimer le budget indicatif et générer votre demande directe.
+            Choisissez vos saveurs et le nombre de parts. Votre sélection génère un message WhatsApp complet pour échanger directement avec Aurélie.
           </p>
         </div>
 
@@ -94,9 +94,9 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {[
-                  { id: 'entremets', title: 'Entremets Miroir', desc: 'Léger, fruité & glaçage brillant', base: 'Dès 42€' },
-                  { id: 'drip-cake', title: 'Drip & Layer Cake', desc: 'Moelleux, chocolat & Kinder', base: 'Dès 55€' },
-                  { id: 'custom', title: 'Pièce Personnalisée', desc: 'Thème spécifique, mariage, fête', base: 'Sur mesure' },
+                  { id: 'entremets', title: 'Entremets Miroir d\'Automne', desc: 'Mousse vanille & fruits frais de saison (figues, poires)', base: 'Dès 42€' },
+                  { id: 'drip-cake', title: 'Drip & Layer Cake', desc: 'Molly cake cacao, coulis chocolat & Kinder Bueno', base: 'Dès 55€' },
+                  { id: 'custom', title: 'Pièce Personnalisée', desc: 'Thème spécifique, étage, anniversaire sur mesure', base: 'Sur devis' },
                 ].map((item) => (
                   <button
                     key={item.id}
@@ -149,7 +149,7 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
             {/* Step 3: Flavor selection */}
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-chocolate-800 mb-3">
-                3. Profil de saveurs préféré :
+                3. Profil de saveurs & fruits :
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {siteConfig.flavorOptions.map((flavor, index) => (
@@ -172,7 +172,7 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
               </div>
             </div>
 
-            {/* Step 4: Customization & Inscription */}
+            {/* Step 4: Customization & Date */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-chocolate-800 mb-2">
@@ -180,7 +180,7 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
                 </label>
                 <input
                   type="text"
-                  placeholder="Ex : Joyeux Anniversaire Sophie 30 ans"
+                  placeholder="Ex : Joyeux Anniversaire 30 ans"
                   value={customInscription}
                   onChange={(e) => setCustomInscription(e.target.value)}
                   className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-cream-50/50"
@@ -189,7 +189,7 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
 
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-chocolate-800 mb-2">
-                  5. Date souhaitée de retrait / livraison :
+                  5. Date souhaitée de l'événement :
                 </label>
                 <input
                   type="date"
@@ -206,7 +206,7 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
               </label>
               <input
                 type="text"
-                placeholder="Ex : Sans alcool, bougies dorées, heure de retrait..."
+                placeholder="Ex : Sans alcool, bougies dorées, heure de retrait souhaitée..."
                 value={extraSpecialRequest}
                 onChange={(e) => setExtraSpecialRequest(e.target.value)}
                 className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-cream-200 focus:outline-none focus:ring-2 focus:ring-gold-400 bg-cream-50/50"
@@ -217,18 +217,18 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
             <div className="flex items-start gap-2.5 p-3.5 rounded-2xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-xs">
               <Info className="w-4 h-4 text-amber-600 flex-shrink-0 mt-0.5" />
               <span>
-                <strong>Délai recommandé :</strong> {siteConfig.leadTimeNotice}. Pour des demandes urgentes ou dates spéciales, n'hésitez pas à nous contacter directement sur WhatsApp.
+                <strong>Réservations exclusives sur WhatsApp :</strong> Commandes 48h à 72h à l'avance. Chaque pièce étant confectionnée artisanalement le jour J ou la veille, les créneaux hebdomadaires sont limités.
               </span>
             </div>
 
             {/* Price Result & Order Actions */}
-            <div className="pt-6 border-t border-cream-200 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="pt-6 border-t border-cream-200 flex flex-col sm:flex-row items-center justify-between gap-6">
               
-              <div className="text-center md:text-left">
+              <div className="text-center sm:text-left">
                 <span className="text-xs text-chocolate-500 uppercase tracking-wider font-semibold block">
                   Estimation indicative du projet
                 </span>
-                <div className="flex items-baseline justify-center md:justify-start gap-2 mt-1">
+                <div className="flex items-baseline justify-center sm:justify-start gap-2 mt-1">
                   <span className="font-serif text-4xl sm:text-5xl font-bold text-chocolate-900">
                     ~{calculatedPrice} €
                   </span>
@@ -238,23 +238,16 @@ Pourrions-nous valider la faisabilité et les modalités de retrait/livraison ? 
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+              {/* Single Prominent WhatsApp Action */}
+              <div className="w-full sm:w-auto">
                 <a
                   href={`https://wa.me/${siteConfig.whatsappNumber}?text=${generateWhatsAppMessage()}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-semibold shadow-soft hover:shadow transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-full text-sm font-bold shadow-card hover:shadow-glow hover:-translate-y-0.5 transition-all focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:outline-none"
                 >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Envoyer mon devis via WhatsApp</span>
-                </a>
-
-                <a
-                  href="#contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-chocolate-900 hover:bg-chocolate-800 text-white px-6 py-3.5 rounded-full text-xs sm:text-sm font-semibold transition-all"
-                >
-                  <span>Formulaire de contact</span>
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Commander sur WhatsApp avec cette sélection</span>
                 </a>
               </div>
 
